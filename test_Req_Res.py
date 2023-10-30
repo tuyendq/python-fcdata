@@ -1,7 +1,7 @@
 # import ssi_fc_trading
 from ssi_fc_data import fc_md_client , model
 import config
-
+import sys
 
 client = fc_md_client.MarketDataClient(config)
 def md_access_token():
@@ -46,6 +46,7 @@ def main():
         print('16  - Intraday OHLC')
         print('17  - Daily index')
         print('18  - Stock price')
+        print('99  - Exit')
         value = input('Enter your choice: ')
 
         if value == '11':
@@ -64,6 +65,8 @@ def main():
             md_get_daily_index()
         elif value == '18':
             md_get_stock_price()
+        elif value == '99':
+            sys.exit('STAY GOLD!')
 
 if __name__ == '__main__':
 	main()
