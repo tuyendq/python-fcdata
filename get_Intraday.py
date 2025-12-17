@@ -73,8 +73,9 @@ def main():
     endDate = get_date_input()
     print(f"Fetching intraday OHLC data for {symbol} from {startDate} to {endDate}...")
     # print(client.intraday_ohlc(config, model.intraday_ohlc(symbol, startDate, endDate, 1, 100, True, 1)))
-    dict = client.intraday_ohlc(config, model.intraday_ohlc(symbol, startDate, endDate, 1, 100, True, 1))
-    totalRecords = dict.get('totalRecords', 0)
+    dict = client.intraday_ohlc(config, model.intraday_ohlc(symbol, startDate, endDate, 1, 1, True, 1))
+    totalRecord = dict.get('totalRecord', 0)
+    print(f"totalRecord: {totalRecord}")
     data = dict.get('data', [])
     if not data:
         print("No data found for the given parameters.")
